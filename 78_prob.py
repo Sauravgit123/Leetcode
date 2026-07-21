@@ -36,22 +36,35 @@ class Solution:
                 ans.append(temp.copy())
                 return
 
-            # Include current element
             temp.append(nums[i])
             solve(i + 1, temp)
 
             # Backtrack
             temp.pop()
-
-            # Exclude current element
             solve(i + 1, temp)
 
         solve(0, [])
         return ans
 
-# Time Complexity : O(n × 2ⁿ)
-# Space Complexity : O(n × 2ⁿ)
-#                    (Answer storage dominates)
+# Time Complexity  : O(n × 2^n)
+# Space Complexity : O(n × 2^n)
+# Auxiliary Space  : O(n)   (Recursion Stack)
 
-# Auxiliary Space (excluding output): O(n)
-#                    (Recursion stack)
+
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n=len(nums)
+        ts=1<<n
+        res=[]
+        for i in range(ts):
+            l=[]
+            for j in range(n):
+                if i & (1<<j)!=0:  # ith set bit 
+                    l.append(nums[j])
+            res.append(l)
+        return res
+    
+# Time Complexity  : O(n × 2^n)
+# Space Complexity : O(n × 2^n)
+# Auxiliary Space  : O(1)

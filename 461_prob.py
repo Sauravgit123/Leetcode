@@ -48,3 +48,17 @@
 # 0101
 
 # There are 2 different bits, so the Hamming Distance = 2.
+
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        n=x^y
+        c=0
+        
+        while n:
+            n&=(n-1)
+            c+=1
+        return c
+
+# Time Complexity
+# Time = O(k)  - removes k set bits
+# Space = O(1)
