@@ -40,3 +40,28 @@ class Solution:
 # Time: O(Cₙ × n) (Catalan number)
 # Auxiliary Space: O(n)
 # Total Space (including output): O(Cₙ × n)
+
+
+
+
+
+res=[]
+def solve(n,temp,t,c):
+    if len(temp)==n:
+        res.append(temp)
+        return
+  
+    if c<n//2:
+        solve(n,temp+"(",t+1,c+1)
+    if t>0:
+        solve(n,temp+")",t-1,c)
+    return res
+
+
+n=4
+
+print(solve(2*n,"",0,0))
+
+# Complexity
+# Time: O(4^n / √n) (Catalan number of valid combinations)
+# Space: O(n) recursion stack (output ko ignore karke)

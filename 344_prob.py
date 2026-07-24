@@ -32,4 +32,27 @@ s = ["h","e","l","l","o"]
 
 print(s[::-1])
 
+# Time Complexity = O(n)
+# Reason: traversing in reverse and making new list
+# Space Complexity = O(n)
+
+
+
+
+
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        l, r = 0, len(s) - 1
+
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+
+# Time Complexity = O(n)
+# Reason: each element swaps atleat 1 time
+
+# Space Complexity = O(1)
+# Reason:No extra list
+
 
