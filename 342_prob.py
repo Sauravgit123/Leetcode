@@ -75,10 +75,18 @@ class Solution:
 # Space: O(1)
 
 
+
+
+
+
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
-        return n > 0 and 1073741824 % n == 0
+        return n > 0 and (n & (n - 1)) == 0 and (n & 0x55555555) != 0
 
+
+# n > 0 → Positive number.
+# (n & (n - 1)) == 0 → Exactly one bit set ⇒ Power of 2.
+# (n & 0x55555555) != 0 → That one set bit is at an even position ⇒ Therefore it's a Power of 4.
 
 # Time = O(1)
 # Space = O(1)
