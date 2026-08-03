@@ -39,25 +39,30 @@
 # All the integers of nums1 also appear in nums2.
 
 
-
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        o=[]
-        i=0
-        while i<len(nums1):
-            q = nums2.index(nums1[i])
-            for j in range(q+1,len(nums2)):
-                if nums2[j]>nums1[i]:
-                    o.append(nums2[j])
-                    break 
-                        
-            else:
-                o.append(-1)
-            i+=1
-                
-            
-        return o
+        st=[]
+        mp={}
+        ans=[]
+        for i in nums2:
+            while st and st[-1]<i:
+                mp[st.pop()]=i
+            st.append(i)
+        while st:
+            mp[st.pop()]=-1
+        for j in nums1:
+            ans.append(mp[j])
+        return ans
 
 
-# Time: O(n × m)
-# Space: O(1) (Auxiliary) / O(n) including the output list.
+# Time Complexity: O(n + m)
+# - Each element of nums2 is pushed onto the stack at most once and popped at most once.
+# - Each element of nums1 is looked up once in the hashmap.
+# Overall: O(n + m)
+# (where n = len(nums2), m = len(nums1))
+
+
+# Space Complexity: O(n)
+# - Stack stores up to O(n) elements.
+# - HashMap stores one entry for each element in nums2.
+# Overall: O(n)
