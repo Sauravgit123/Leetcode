@@ -96,5 +96,32 @@ class Solution:
 
 
 # Complexity:
-# Time: O(n)
+# Time: O(2n) = O(n)
 # Space: O(1)
+
+
+
+#OPTIMAL 
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        m=0
+        l=0
+        r=0
+        d={}
+        while r<len(fruits):
+            d[fruits[r]]=d.get(fruits[r],0)+1
+            if len(d)>2:
+                d[fruits[l]]-=1
+                if d[fruits[l]]==0:
+                    del d[fruits[l]]
+                l+=1
+    
+            if len(d)<=2:
+                m=max(m,r-l+1)
+            r+=1
+        return m
+            
+                
+                
+                
+
