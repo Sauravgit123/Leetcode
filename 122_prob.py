@@ -53,3 +53,18 @@ class Solution:
 # Tumhara code:
 # Time Complexity: O(n) 
 # Space Complexity: O(1) 
+
+
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:       # use this logic
+        mp=0
+
+        for i in range(1,len(prices)):
+            if prices[i]>prices[i-1]:
+                mp+=prices[i]-prices[i-1]
+        return mp
+
+# Time Complexity: O(n) 
+# Space Complexity: O(1) 

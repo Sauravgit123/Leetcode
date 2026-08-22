@@ -39,7 +39,7 @@ class Solution:
         maxi=0
         di={}
         while r<len(s) :
-            if s[r] in di and   l <= di[s[r]] :
+            if s[r] in di and l <= di[s[r]] :
                 l=di[s[r]]+1
                 
             di[s[r]]=r

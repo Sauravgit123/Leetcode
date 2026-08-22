@@ -55,3 +55,12 @@ class Solution:
             else:
                 continue
         return p
+
+# Time Complexity: O(n)
+# - Each character is visited exactly once.
+# Overall: O(n)
+
+
+# Space Complexity: O(1)
+# - Only two integer variables are used.
+# Overall: O(1)

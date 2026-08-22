@@ -57,11 +57,9 @@ def solve(n,temp,t,c):
         solve(n,temp+")",t-1,c)
     return res
 
-
 n=4
-
 print(solve(2*n,"",0,0))
 
 # Complexity
 # Time: O(4^n / √n) (Catalan number of valid combinations)
-# Space: O(n) recursion stack (output ko ignore karke)
+# Space: O(2n) = O(n) recursion stack (output ko ignore karke)
