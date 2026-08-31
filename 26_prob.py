@@ -57,13 +57,27 @@ for j in range(1,len(a)):
     if a[i]!=a[j]:
         i+=1
         a[i]=a[j]
-
-
 print(i+1)
 
 for i in range(i+1):
     print(a[i],end=" ")
 
+
+
+
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        i=0
+        j=1
+        while j<len(nums):
+            if nums[i]!=nums[j]:
+                i+=1
+                nums[i],nums[j]=nums[j],nums[i]
+            j+=1
+        
+        return i+1
+     
 
 # Time  : O(n)
 # Space : O(1)

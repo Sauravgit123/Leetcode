@@ -33,8 +33,7 @@ class Solution:
         for _ in range(l-n-1):
             curr=curr.next
         curr.next=curr.next.next
-        return heada
-
+        return head
 # Complexity:
 # Time:O(n)
 # (Length traversal + second traversal)
