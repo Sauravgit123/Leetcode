@@ -22,9 +22,22 @@
 # words[i] consists of lowercase English letters.
 
 
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        common = Counter(words[0])
 
+        for word in words[1:]:
+            curr = Counter(word)
 
+            for ch in common:
+                common[ch] = min(common[ch], curr[ch])
 
+        ans = []
+
+        for ch, count in common.items():
+            ans += [ch] * count
+
+        return ans
 
 
 
