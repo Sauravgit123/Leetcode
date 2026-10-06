@@ -47,7 +47,7 @@ class Solution:
         curr=head
         for _ in range(mid):
             curr=curr.next
-        return ans
+        return curr
 
 
 # Time Complexity
